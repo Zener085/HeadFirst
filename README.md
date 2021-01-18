@@ -1,2 +1,2 @@
 # HeadFirst
-The codes I used while I was learning HeadFirst Python
+The codes I used while I was learning HeadFirst
