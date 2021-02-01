@@ -1,5 +1,4 @@
 import html
-
 from flask import Flask, render_template
 from vsearch import search4letters as s4l
 
