@@ -5,11 +5,6 @@ from vsearch import search4letters as s4l
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello() -> str:
-    return 'Hello world from Flask!'
-
-
 @app.route('/search4', methods=['POST'])
 def do_search() -> html:
     phrase = request.form['phrase']
@@ -23,10 +18,12 @@ def do_search() -> html:
                            the_results=results,)
 
 
+@app.route('/')
 @app.route('/entry')
 def entry_page() -> html:
     return render_template('entry.html', name='name',
                            the_title='Welcome to search4letters on the web!')
 
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
