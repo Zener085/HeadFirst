@@ -5,7 +5,7 @@ from vsearch import search4letters as s4l
 app = Flask(__name__)
 
 
-def log_request(req: 'flask_request', res: str) -> None:
+def log_request(req, res: str) -> None:
     with open('vsearch.log', 'a') as log:
         print(req, res, file=log)
 
