@@ -1,13 +1,14 @@
 import html
-from flask import Flask, render_template, request
+import flask
+from flask import Flask, render_template, request, escape
 from vsearch import search4letters as s4l
 
 app = Flask(__name__)
 
 
-def log_request(req, res: str) -> None:
+def log_request(req, res: set) -> None:
     with open('vsearch.log', 'a') as log:
-        print(req, res, file=log)
+        print(req.form, req.remote_addr, req.user_agent, res, file=log, sep='|')
 
 
 @app.route('/search4', methods=['POST'])
@@ -35,7 +36,7 @@ def entry_page() -> html:
 def view_the_log() -> str:
     with open('vsearch.log') as log:
         contests = log.read()
-        return contests
+    return contests
 
 
 if __name__ == '__main__':
