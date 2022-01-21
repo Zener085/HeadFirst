@@ -1,5 +1,4 @@
 import html
-import flask
 import mysql.connector
 
 from flask import Flask, render_template, request, escape
